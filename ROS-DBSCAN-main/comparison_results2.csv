@@ -1,0 +1,30 @@
+ Comparison Real Turtlebot3,,,,,
+Scenario,AE avg(std),DB-Conseq avg(std),KS avg(std),Iso-Forest avg(std),
+Normal Operation (FPR),17%(30%),10%(17%),13%(25%),7%(15%),
+Object Collision (TPR),39%(8%),67%(2%),60%(0%),15%(5%),
+Hardware Failure (TPR),67%(0%),73%(8%),67%(0%),0%(0%),
+Low Net Connection (TPR),100%(0%),100%(0%),100%(0%),23%(6%),
+Unmapped Obstacles (TPR),11%(7%),18%(10%),7%(0%),39%(6%),
+Malicious Code (TPR),69%(7%),80%(0%),93%(0%),36%(14%),
+,,,,,
+Comparison Simulated Turtlebot3,,,,,
+Scenario,AE avg(std),DB-Conseq avg(std),KS avg(std),Iso-Forest avg(std),
+Normal Operation (FPR),10%(22%),15%(25%),10%(33%),10%(22%),
+Laser Failure (TPR),34%(30%),35%(23%),9%(7%),69%(21%),
+Unmapped Obstacles (TPR),11%(9%),13%(5%),5%(13%),7%(0%),
+Malicious Code (TPR),3%(3%),39%(15%),22%(7%),20%(9%),
+,,,,,
+Comparison Real Panda,,,,,
+Scenario,AE avg(std),DB-Conseq avg(std),KS avg(std),Iso-Forest avg(std), ADM avg(std)
+Normal (FPR),0%(0%),0%(0%),10%(17%),3.33%(11.11%),10%(15%)
+Chng. Obj.~Weight (TPR),19%(32%),100%(0%),0%(0%),85%(21%),0%(0%)
+Malicious Code (TPR),87%(23%),100%(0%),15%(5%),80%(11%),33%(0%)
+Low Net Connect. (TPR),100%(0%),100%(0%),100%(0%),28%(5%),0%(0%)
+Moving Object (TPR),84%(37%),25%(0%),8%(0%),8%(8%),0%(0%)
+,,,,,
+Comparison  Simulated Panda,,,,,
+Scenario,AE avg(std),DB-Conseq avg(std),KS avg(std),Iso-Forest avg(std), ADM avg(std)
+Normal (FPR),5%(17%),10%(22%),15%(36%),10%(22%),15%(32%)
+Collision (TPR),100%(0%),100%(0%),30%(26%),80%(25%),67%(0%)
+Drop Early (TPR),91%(8%),87%(5%),20%(26%),76%(10%),29%(0%)
+Malic.~Code (TPR),61%(16%),81%(4%),95%(3%),41%(13%),j 
