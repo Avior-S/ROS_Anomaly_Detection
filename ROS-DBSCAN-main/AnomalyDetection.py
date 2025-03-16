@@ -457,8 +457,8 @@ def main():
             print(f' {scenario_labels[i]}:  [{ci_lower:.4f}, {ci_upper:.4f}], Median: {median:.4f}')
 
         # הצגת הנתונים גרפית
-        CI.plot_confidence_intervals(scenario_conf_intervals, scenario_labels, scenario)
-        # CI.plot_all_confidence_intervals(scenario_conf_intervals, scenario_labels, all_scenario_values, scenario)
+        # CI.plot_confidence_intervals(scenario_conf_intervals, scenario_labels, scenario)
+        CI.plot_all_confidence_intervals(scenario_conf_intervals, scenario_labels, all_scenario_values, scenario)
 
 
         # Iterating over DataFrames and saving them to CSV

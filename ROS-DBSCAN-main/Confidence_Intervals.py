@@ -26,61 +26,21 @@ def plot_confidence_intervals(intervals, scenario_labels, scenario):
     # plt.show()
 
 
-import matplotlib.pyplot as plt
-import numpy as np
-
-import matplotlib.pyplot as plt
-import numpy as np
-
-
-# def plot_all_confidence_intervals(intervals, scenario_labels, all_results, scenario=None, save_path=None):
-#     """ Displays confidence intervals using a Box Plot along with the results of 10-fold cross-validation """
-#     plt.figure(figsize=(10, 6))
-#
-#     # Plot the box plot for the 10-fold results
-#     plt.boxplot(all_results, positions=range(len(scenario_labels)), widths=0.5, patch_artist=True,
-#                 boxprops=dict(facecolor='lightblue', color='blue'),
-#                 whiskerprops=dict(color='blue'),
-#                 flierprops=dict(marker='o', color='red', markersize=5, label='Outliers'))
-#
-#     # Plot individual points for each sample (10-fold results)
-#     for i, scenario_results in enumerate(all_results):
-#         # Scatter points for each sample (fold)
-#         plt.scatter([i] * len(scenario_results), scenario_results, color='black', alpha=0.6,
-#                     label='Sample Points' if i == 0 else "")
-#
-#     # Extract lower bounds, medians, and upper bounds for the confidence intervals
-#     lower_bounds, medians, upper_bounds = zip(*intervals)
-#
-#     # Plot the confidence intervals as error bars
-#     plt.errorbar(range(len(scenario_labels)), medians,
-#                  yerr=[np.array(medians) - np.array(lower_bounds), np.array(upper_bounds) - np.array(medians)],
-#                  fmt='o', capsize=5, color='blue', label='67% Bayesian CI')
-#
-#     # Add labels and title
-#     plt.title('Bayesian Confidence Intervals and 10-Fold Results for Anomaly Detection Rate')
-#     plt.xlabel('Scenarios')
-#     plt.ylabel('Detection Rate')
-#     plt.xticks(range(len(scenario_labels)), scenario_labels)  # Label for each scenario
-#     plt.legend()
-#
-#     # Save the plot if a save path is provided
-#     if save_path:
-#         plt.savefig(save_path+scenario)
-#         print(f"Plot saved to {save_path+scenario}")
-#
-#     # Show the plot
-#     plt.show()
-
-
-def plot_all_confidence_intervals(intervals, scenario_labels, lists_all_results, scenario):
+def plot_all_confidence_intervals(intervals, scenario_labels, all_results, scenario=None, save_path=None):
     """ Displays confidence intervals using a Box Plot along with the results of 10-fold cross-validation """
-    plt.figure(figsize=(10, 6))
+    plt.figure(figsize=(12, 8))
 
     # Plot the box plot for the 10-fold results
-    plt.boxplot(lists_all_results, positions=range(len(scenario_labels)), widths=0.5, patch_artist=True,
+    plt.boxplot(all_results, positions=range(len(scenario_labels)), widths=0.5, patch_artist=True,
                 boxprops=dict(facecolor='lightblue', color='blue'),
-                whiskerprops=dict(color='blue'), flierprops=dict(marker='o', color='red', markersize=5))
+                whiskerprops=dict(color='blue'),
+                flierprops=dict(marker='o', color='red', markersize=5, label='Outliers'))
+
+    # # Plot individual points for each sample (10-fold results)
+    # for i, scenario_results in enumerate(all_results):
+    #     # Scatter points for each sample (fold)
+    #     plt.scatter([i] * len(scenario_results), scenario_results, color='black', alpha=0.6,
+    #                 label='Sample Points' if i == 0 else "")
 
     # Extract lower bounds, medians, and upper bounds for the confidence intervals
     lower_bounds, medians, upper_bounds = zip(*intervals)
@@ -98,9 +58,41 @@ def plot_all_confidence_intervals(intervals, scenario_labels, lists_all_results,
     plt.legend()
 
     # Save the plot if a save path is provided
-
-    plt.savefig("plots\\"+scenario+".png")
+    plt.savefig("plots\\all_points_"+scenario+".png")
     print(f"Plot saved to plots\\{scenario}.png")
+
+    # Show the plot
+    plt.show()
+
+
+# def plot_all_confidence_intervals(intervals, scenario_labels, lists_all_results, scenario):
+#     """ Displays confidence intervals using a Box Plot along with the results of 10-fold cross-validation """
+#     plt.figure(figsize=(10, 6))
+#
+#     # Plot the box plot for the 10-fold results
+#     plt.boxplot(lists_all_results, positions=range(len(scenario_labels)), widths=0.5, patch_artist=True,
+#                 boxprops=dict(facecolor='lightblue', color='blue'),
+#                 whiskerprops=dict(color='blue'), flierprops=dict(marker='o', color='red', markersize=5))
+#
+#     # Extract lower bounds, medians, and upper bounds for the confidence intervals
+#     lower_bounds, medians, upper_bounds = zip(*intervals)
+#
+#     # Plot the confidence intervals as error bars
+#     plt.errorbar(range(len(scenario_labels)), medians,
+#                  yerr=[np.array(medians) - np.array(lower_bounds), np.array(upper_bounds) - np.array(medians)],
+#                  fmt='o', capsize=5, color='blue', label='67% Bayesian CI')
+#
+#     # Add labels and title
+#     plt.title(f'{scenario} Bayesian Confidence Intervals and 10-Fold Results for Anomaly Detection Rate')
+#     plt.xlabel('Scenarios')
+#     plt.ylabel('Detection Rate')
+#     plt.xticks(range(len(scenario_labels)), scenario_labels)  # Label for each scenario
+#     plt.legend()
+#
+#     # Save the plot if a save path is provided
+#
+#     plt.savefig("plots\\all_points"+scenario+".png")
+#     print(f"Plot saved to plots\\{scenario}.png")
 
     # Show the plot
     # plt.show()
